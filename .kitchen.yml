@@ -6,7 +6,7 @@ driver:
 
 provisioner:
   name: puppet_apply
-  puppet_apply_command: sudo -E puppet apply /tmp/kitchen/manifests/init.pp --modulepath=/tmp/kitchen/modules --manifestdir=/tmp/kitchen/manifests --parser=future
+  puppet_apply_command: sudo -E /opt/puppetlabs/puppet/bin/puppet apply /tmp/kitchen/manifests/init.pp --modulepath=/tmp/kitchen/modules
   manifests_path: fixtures
   modules_path: modules
 
@@ -15,12 +15,17 @@ platforms:
     driver_plugin: vagrant
     driver_config:
       box: puppetlabs/ubuntu-14.04-64-nocm
-      box_url: https://atlas.hashicorp.com/puppetlabs/boxes/ubuntu-14.04-64-nocm
-  - name: ubuntu-12.04
+      box_url: https://app.vagrantup.com/puppetlabs/boxes/ubuntu-14.04-64-nocm
+  - name: ubuntu-16.04
     driver_plugin: vagrant
     driver_config:
-      box: puppetlabs/ubuntu-12.04-64-nocm
-      box_url: https://atlas.hashicorp.com/puppetlabs/boxes/ubuntu-12.04-64-nocm
+      box: puppetlabs/ubuntu-16.04-64-nocm
+      box_url: https://app.vagrantup.com/puppetlabs/boxes/ubuntu-16.04-64-nocm
+#  - name: ubuntu-12.04
+#    driver_plugin: vagrant
+#    driver_config:
+#      box: puppetlabs/ubuntu-12.04-64-nocm
+#      box_url: https://atlas.hashicorp.com/puppetlabs/boxes/ubuntu-12.04-64-nocm
 
 
 suites:
